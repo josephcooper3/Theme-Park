@@ -49,13 +49,18 @@ public class RollercoasterTest {
     }
 
     @Test
-    public void canGetTicketPrice() {
+    public void canGetDefaultPrice() {
+        assertEquals(8.40, rollerCoaster.defaultPrice(), 2);
+    }
+
+    @Test
+    public void canGetPriceForVisitor() {
         Visitor visitor = new Visitor(12, 144.0, 5.0);
         assertEquals(8.40, rollerCoaster.priceFor(visitor), 2);
     }
 
     @Test
-    public void ChargesDoubleIfVisitorOver200cm() {
+    public void twicePriceIfVisitorOver200cm() {
         Visitor visitor = new Visitor(18, 201.0, 55.0);
         assertEquals(16.80, rollerCoaster.priceFor(visitor), 2);
     }
